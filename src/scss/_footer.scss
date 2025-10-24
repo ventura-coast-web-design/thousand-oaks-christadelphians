@@ -1,1 +1,201 @@
 @use "variables";
+
+// Footer - Mobile First Design
+.site-footer {
+  background-color: variables.$text-color;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 3rem 0 1.5rem;
+  margin-top: 4rem;
+
+  @media (min-width: variables.$breakpoint-md) {
+    padding: 4rem 0 2rem;
+  }
+}
+
+.footer {
+  &__container {
+    max-width: variables.$container-max-width;
+    margin: 0 auto;
+    padding: 0 variables.$container-padding;
+  }
+
+  &__main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    @media (min-width: variables.$breakpoint-sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: variables.$breakpoint-lg) {
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 3rem;
+    }
+  }
+
+  &__section {
+    &--about {
+      @media (min-width: variables.$breakpoint-sm) and (max-width: variables.$breakpoint-lg - 1) {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+
+  &__heading {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 0 0 1rem;
+    color: white;
+  }
+
+  &__text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0 0 0.75rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Social media links
+  &__social {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+
+  &__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      stroke: none;
+    }
+
+    &:hover {
+      background-color: variables.$primary-color;
+      transform: translateY(-2px);
+    }
+  }
+
+  // Quick links
+  &__links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__link {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.4rem 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+
+    &:hover {
+      color: white;
+      transform: translateX(4px);
+    }
+
+    &::before {
+      content: '→';
+      opacity: 0;
+      margin-right: 0.5rem;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+  }
+
+  // Service times
+  &__service-time {
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      color: white;
+    }
+  }
+
+  // Contact info
+  &__address {
+    font-style: normal;
+  }
+
+  &__contact-link {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: variables.$primary-color;
+    }
+  }
+
+  // Footer bottom
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+    padding-top: 1.5rem;
+
+    @media (min-width: variables.$breakpoint-md) {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  &__copyright {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+  }
+
+  &__legal {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  &__legal-link {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  &__separator {
+    color: rgba(255, 255, 255, 0.3);
+  }
+}

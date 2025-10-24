@@ -48,11 +48,6 @@
 
 .site-main {
   min-height: calc(100vh - 140px);
-  padding: 2rem 0;
-
-  @include mixins.responsive(variables.$breakpoint-md) {
-    padding: 4rem 0;
-  }
 }
 
 .site-footer {

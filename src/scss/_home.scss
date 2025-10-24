@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, variables.$primary-color 0%, color.adjust(variables.$primary-color, $lightness: -15%) 100%);
+  background: url('/assets/ecclesia.jpeg') center center / cover no-repeat;
   color: white;
   text-align: center;
   overflow: hidden;
@@ -23,9 +23,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,100 Q300,200 600,100 T1200,100 L1200,600 L0,600 Z" fill="rgba(255,255,255,0.05)"/></svg>') no-repeat bottom;
-    background-size: cover;
-    opacity: 0.3;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.7) 0%, rgba(29, 78, 216, 0.8) 80%);
   }
 
   &__content {

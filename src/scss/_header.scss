@@ -6,7 +6,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: variables.$background-color;
+  background-color: #e8e7e1;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
 
@@ -17,43 +17,25 @@
 
 .nav {
   &__container {
-    max-width: variables.$container-max-width;
+    width: 100%;
+    padding: 0 variables.$container-padding;
     margin: 0 auto;
-    padding: 1rem variables.$container-padding;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
+    background-color: #e8e7e1;
   }
 
   &__logo {
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    text-decoration: none;
-    color: variables.$text-color;
-    font-weight: 700;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-    z-index: 1001;
-
-    &:hover {
-      color: variables.$primary-color;
-    }
+    width: 220px;
   }
 
-  &__logo-icon {
-    width: 32px;
-    height: 32px;
-    color: variables.$primary-color;
-    flex-shrink: 0;
-  }
-
-  &__logo-text {
-    // Hide full text on mobile, show abbreviated version
-    @media (max-width: variables.$breakpoint-md - 1) {
-      display: none;
-    }
+  &__logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   // Mobile hamburger toggle
@@ -108,7 +90,7 @@
     gap: 0.5rem;
 
     // Mobile menu styles
-    @media (max-width: variables.$breakpoint-md - 1) {
+    @media (max-width: variables.$breakpoint-md) {
       position: fixed;
       top: 0;
       right: -100%;
@@ -134,7 +116,7 @@
   }
 
   &__item {
-    @media (max-width: variables.$breakpoint-md - 1) {
+    @media (max-width: variables.$breakpoint-md) {
       border-bottom: 1px solid variables.$border-color;
     }
   }
@@ -171,7 +153,7 @@
       background-color: variables.$primary-color;
       transition: transform 0.3s ease;
 
-      @media (max-width: variables.$breakpoint-md - 1) {
+      @media (max-width: variables.$breakpoint-md) {
         display: none;
       }
     }
@@ -185,7 +167,7 @@
       background-color: variables.$primary-color;
       color: white;
 
-      @media (max-width: variables.$breakpoint-md - 1) {
+      @media (max-width: variables.$breakpoint-md) {
         margin-top: 1rem;
         text-align: center;
         border-radius: 8px;
@@ -204,7 +186,7 @@
 }
 
 // Overlay for mobile menu
-@media (max-width: variables.$breakpoint-md - 1) {
+@media (max-width: variables.$breakpoint-md) {
   .nav__menu--active::before {
     content: '';
     position: fixed;

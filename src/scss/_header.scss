@@ -1,1 +1,218 @@
 @use "variables";
+@use "sass:color";
+
+// Header - Mobile First Design
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: variables.$background-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+
+  &--scrolled {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.nav {
+  &__container {
+    max-width: variables.$container-max-width;
+    margin: 0 auto;
+    padding: 1rem variables.$container-padding;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: variables.$text-color;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    z-index: 1001;
+
+    &:hover {
+      color: variables.$primary-color;
+    }
+  }
+
+  &__logo-icon {
+    width: 32px;
+    height: 32px;
+    color: variables.$primary-color;
+    flex-shrink: 0;
+  }
+
+  &__logo-text {
+    // Hide full text on mobile, show abbreviated version
+    @media (max-width: variables.$breakpoint-md - 1) {
+      display: none;
+    }
+  }
+
+  // Mobile hamburger toggle
+  &__toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+
+    @media (min-width: variables.$breakpoint-md) {
+      display: none;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &--active {
+      .nav__toggle-line {
+        &:nth-child(1) {
+          transform: translateY(6px) rotate(45deg);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:nth-child(3) {
+          transform: translateY(-6px) rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  &__toggle-line {
+    width: 24px;
+    height: 2px;
+    background-color: variables.$text-color;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+
+  // Navigation menu
+  &__menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 0.5rem;
+
+    // Mobile menu styles
+    @media (max-width: variables.$breakpoint-md - 1) {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background-color: variables.$background-color;
+      flex-direction: column;
+      padding: 5rem 2rem 2rem;
+      box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+      transition: right 0.3s ease;
+      overflow-y: auto;
+      gap: 0;
+
+      &--active {
+        right: 0;
+      }
+    }
+
+    @media (min-width: variables.$breakpoint-md) {
+      align-items: center;
+      gap: 0.25rem;
+    }
+  }
+
+  &__item {
+    @media (max-width: variables.$breakpoint-md - 1) {
+      border-bottom: 1px solid variables.$border-color;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 1rem;
+    color: variables.$text-color;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 6px;
+    position: relative;
+
+    @media (min-width: variables.$breakpoint-md) {
+      padding: 0.75rem 1rem;
+    }
+
+    &:hover {
+      color: variables.$primary-color;
+      background-color: variables.$light-background;
+    }
+
+    // Active/current page indicator
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      width: 80%;
+      height: 2px;
+      background-color: variables.$primary-color;
+      transition: transform 0.3s ease;
+
+      @media (max-width: variables.$breakpoint-md - 1) {
+        display: none;
+      }
+    }
+
+    &:hover::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+
+    // CTA button style
+    &--cta {
+      background-color: variables.$primary-color;
+      color: white;
+
+      @media (max-width: variables.$breakpoint-md - 1) {
+        margin-top: 1rem;
+        text-align: center;
+        border-radius: 8px;
+      }
+
+      &:hover {
+        background-color: color.adjust(variables.$primary-color, $lightness: -10%);
+        color: white;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+// Overlay for mobile menu
+@media (max-width: variables.$breakpoint-md - 1) {
+  .nav__menu--active::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+}

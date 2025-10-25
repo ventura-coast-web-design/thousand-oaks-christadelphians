@@ -7,8 +7,9 @@
   min-height: 70vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: url('/assets/old-ecclesial-photo.jpg') center center / cover no-repeat;
+  justify-content: right;
+  padding-right: 30px;
+  background: url('/assets/bible-image.jpg') center center / cover no-repeat;
   color: white;
   text-align: center;
   overflow: hidden;
@@ -17,17 +18,8 @@
     min-height: 80vh;
   }
 
-  &__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.7) 0%, rgba(29, 78, 216, 0.8) 80%);
-  }
-
   &__content {
-    position: relative;
+    position: left;
     z-index: 1;
     max-width: 800px;
     padding: 2rem variables.$container-padding;

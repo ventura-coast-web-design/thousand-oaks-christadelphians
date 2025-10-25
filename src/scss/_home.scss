@@ -6,10 +6,12 @@
   position: relative;
   min-height: 70vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: right;
-  padding-right: 30px;
-  background: url('/assets/bible-image.jpg') center center / cover no-repeat;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: url('/assets/old-ecclesial-photo.jpg') center center / cover no-repeat;
   color: white;
   text-align: center;
   overflow: hidden;
@@ -18,13 +20,79 @@
     min-height: 80vh;
   }
 
-  &__content {
-    position: left;
-    z-index: 1;
-    max-width: 800px;
-    padding: 2rem variables.$container-padding;
+  @media (min-width: variables.$breakpoint-lg) {
+    flex-direction: row;
+    justify-content: space-around;
+    padding-right: 30px;
   }
+  
+  &__left-content {
+      z-index: 1;
+      width: 100%;
+      max-width: 90%;
+      padding: 1rem;
+      background: rgba(#e8e7e1, 0.9);
+      color: #000000;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      order: 2;
 
+      @media (min-width: variables.$breakpoint-lg) {
+        max-width: 300px;
+        order: 0;
+        gap: 0.5rem;
+      }
+
+      .schedule_title {
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin: 0 0 0.5rem;
+        line-height: 1.2;
+        animation: fadeInUp 1s ease;
+      }
+      
+      .schedule_subtitle {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0;
+        line-height: 1.2;
+        animation: fadeInUp 1s ease;
+        display: inline;
+
+        @media (min-width: variables.$breakpoint-lg) {
+          font-size: 1.2rem;
+          margin: 0 0 1rem;
+          display: block;
+        }
+      }
+
+      p {
+        display: inline;
+        margin: 0 0 0 0.5rem;
+        font-size: 1rem;
+
+        @media (min-width: variables.$breakpoint-lg) {
+          display: block;
+          margin: 0;
+        }
+      }
+    }
+    
+    &__right-content {
+        z-index: 1;
+        max-width: 90%;
+        padding: 2rem;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 12px;
+        order: 1;
+
+        @media (min-width: variables.$breakpoint-lg) {
+          max-width: 600px;
+          order: 0;
+        }
+    }
   &__title {
     font-size: 2.5rem;
     font-weight: 800;

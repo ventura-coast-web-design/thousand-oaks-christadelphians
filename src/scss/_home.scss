@@ -26,7 +26,7 @@
     padding-right: 30px;
   }
   
-  &__left-content {
+  &__right-content {
       z-index: 1;
       width: 100%;
       max-width: 90%;
@@ -80,7 +80,7 @@
       }
     }
     
-    &__right-content {
+    &__left-content {
         z-index: 1;
         max-width: 90%;
         padding: 2rem;

@@ -1,9 +1,186 @@
 ---
 layout: base.njk
-title: "Contact - Eleventy SCSS Template"
-description: "Get in touch with us"
+title: "Contact - Thousand Oaks Christadelphians"
+description: "Get in touch with us - Service times, location, and contact information"
 ---
 
-<div class="page-header">
-  CONTACT
+<section class="contact-hero">
+    <div class="contact-hero__container">
+        <h1 class="contact-hero__title">Contact Us</h1>
+        <p class="contact-hero__subtitle">We'd love to hear from you</p>
+    </div>
+</section>
+
+<section class="contact-info">
+    <div class="contact-info__container">
+        <h2 class="contact-info__heading">Visit Us</h2>
+        <p class="contact-info__text">
+            We meet regularly for worship, Bible study, and fellowship. All are welcome to join us!
+        </p>
+
+        <div class="contact-cards">
+            <div class="contact-card">
+                <div class="contact-card__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </div>
+                <h3 class="contact-card__title">Location</h3>
+                <p class="contact-card__text">
+                    Thousand Oaks Christadelphian Ecclesia<br>
+                    Thousand Oaks, California<br>
+                    91360
+                </p>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-card__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                </div>
+                <h3 class="contact-card__title">Service Times</h3>
+                <div class="contact-card__text">
+                    <strong>Sunday Morning:</strong><br>
+                    Memorial Service - 9:30 AM<br>
+                    Bible Class - 11:00 AM<br><br>
+                    <strong>Wednesday Evening:</strong><br>
+                    Bible Study - 7:30 PM
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-card__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </div>
+                <h3 class="contact-card__title">Email</h3>
+                <p class="contact-card__text">
+                    <a href="mailto:contact@thousandoakschristadelphians.org">contact@thousandoakschristadelphians.org</a>
+                </p>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-card__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                </div>
+                <h3 class="contact-card__title">Phone</h3>
+                <p class="contact-card__text">
+                    <a href="tel:+18055551234">(805) 555-1234</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact-form-section">
+    <div class="contact-form-section__container">
+        <div class="contact-form-section__content">
+            <h2 class="contact-form-section__heading">Send Us a Message</h2>
+            <p class="contact-form-section__text">
+                Have a question about our beliefs, want to arrange a Bible study, or just want to learn more? 
+                Fill out the form below and we'll get back to you as soon as possible.
+            </p>
+
+            <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact" />
+                
+                <!-- Hidden field for spam prevention -->
+                <p class="contact-form__hidden">
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </p>
+
+                <div class="contact-form__row">
+                    <div class="contact-form__group">
+                        <label for="name" class="contact-form__label">Name *</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            class="contact-form__input" 
+                            required 
+                            placeholder="Your full name"
+                        />
+                    </div>
+
+                    <div class="contact-form__group">
+                        <label for="email" class="contact-form__label">Email *</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            class="contact-form__input" 
+                            required 
+                            placeholder="your.email@example.com"
+                        />
+                    </div>
+                </div>
+
+                <div class="contact-form__row">
+                    <div class="contact-form__group">
+                        <label for="phone" class="contact-form__label">Phone</label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone" 
+                            class="contact-form__input" 
+                            placeholder="(555) 123-4567"
+                        />
+                    </div>
+
+                    <div class="contact-form__group">
+                        <label for="subject" class="contact-form__label">Subject *</label>
+                        <select id="subject" name="subject" class="contact-form__select" required>
+                            <option value="">Select a subject...</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="bible-study">Bible Study Request</option>
+                            <option value="visit">Planning to Visit</option>
+                            <option value="baptism">Baptism Inquiry</option>
+                            <option value="beliefs">Questions About Beliefs</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="contact-form__group">
+                    <label for="message" class="contact-form__label">Message *</label>
+                    <textarea 
+                        id="message" 
+                        name="message" 
+                        class="contact-form__textarea" 
+                        rows="6" 
+                        required 
+                        placeholder="Tell us how we can help you..."
+                    ></textarea>
 </div>
+
+                <button type="submit" class="contact-form__submit">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="contact-cta">
+    <div class="contact-cta__container">
+        <h2 class="contact-cta__heading">First Time Visiting?</h2>
+        <p class="contact-cta__text">
+            You're always welcome at our services. No special dress code is required, and you'll find a warm, 
+            friendly atmosphere where we study the Bible together. Feel free to ask questions and take your time 
+            getting to know us.
+        </p>
+        <div class="contact-cta__actions">
+            <a href="/about" class="contact-cta__btn contact-cta__btn--primary">Learn About Our Beliefs</a>
+            <a href="/" class="contact-cta__btn contact-cta__btn--secondary">Back to Home</a>
+        </div>
+    </div>
+</section>

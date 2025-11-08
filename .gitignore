@@ -9,6 +9,7 @@ _site/
 dist/
 build/
 src/css/
+.cache/
 
 # Environment variables
 .env

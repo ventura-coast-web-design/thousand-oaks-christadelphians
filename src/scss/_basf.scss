@@ -13,8 +13,8 @@
   }
 
   &__container {
-    max-width: $container-max-width;
-    margin: 0 auto;
+    max-width: 95%;
+    margin: 0 1rem;
     padding: 0 $container-padding;
   }
 
@@ -89,15 +89,28 @@
   }
 
   &__container {
-    max-width: 900px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 $container-padding;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 95%;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      max-width: 90%;
+      gap: 2rem;
+    }
   }
 }
 
 // BASF Clause
 .basf-clause {
-  margin-bottom: 3rem;
   padding: 2rem;
   background: $light-background;
   border-radius: 12px;

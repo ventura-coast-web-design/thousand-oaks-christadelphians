@@ -95,6 +95,7 @@
     max-width: variables.$container-max-width;
     margin: 0 auto;
     padding: 0 variables.$container-padding;
+    text-align: center;
   }
 
   &__heading {
@@ -127,6 +128,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
+  margin-bottom: 3rem;
 
   @media (min-width: variables.$breakpoint-md) {
     grid-template-columns: repeat(2, 1fr);

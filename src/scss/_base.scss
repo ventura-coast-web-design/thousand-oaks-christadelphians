@@ -26,4 +26,61 @@ a {
   &:hover {
     color: color.adjust(variables.$primary-color, $lightness: -10%);
   }
+}
+
+// Buttons
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-family: variables.$font-family;
+  line-height: 1.5;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &-primary {
+    background: variables.$primary-color;
+    color: white;
+
+    &:hover {
+      background: color.adjust(variables.$primary-color, $lightness: -10%);
+      color: white;
+    }
+  }
+
+  &-secondary {
+    background: variables.$light-background;
+    color: variables.$text-color;
+    border: 2px solid variables.$border-color;
+
+    &:hover {
+      background: variables.$border-color;
+      color: variables.$text-color;
+    }
+  }
+
+  &-outline {
+    background: transparent;
+    color: variables.$primary-color;
+    border: 2px solid variables.$primary-color;
+
+    &:hover {
+      background: variables.$primary-color;
+      color: white;
+    }
+  }
 } 

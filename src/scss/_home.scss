@@ -1,4 +1,4 @@
-@use "variables";
+@use "variables" as *;
 @use "sass:color";
 
 // Hero Section - Mobile First
@@ -16,11 +16,11 @@
   text-align: center;
   overflow: hidden;
 
-  @media (min-width: variables.$breakpoint-md) {
+  @media (min-width: $breakpoint-md) {
     min-height: 80vh;
   }
 
-  @media (min-width: variables.$breakpoint-lg) {
+  @media (min-width: $breakpoint-lg) {
     flex-direction: row;
     justify-content: space-around;
     padding-right: 30px;
@@ -39,7 +39,7 @@
       gap: 0.25rem;
       order: 2;
 
-      @media (min-width: variables.$breakpoint-lg) {
+      @media (min-width: $breakpoint-lg) {
         max-width: 300px;
         order: 0;
         gap: 0.5rem;
@@ -61,7 +61,7 @@
         animation: fadeInUp 1s ease;
         display: inline;
 
-        @media (min-width: variables.$breakpoint-lg) {
+        @media (min-width: $breakpoint-lg) {
           font-size: 1.2rem;
           margin: 0 0 1rem;
           display: block;
@@ -73,7 +73,7 @@
         margin: 0 0 0 0.5rem;
         font-size: 1rem;
 
-        @media (min-width: variables.$breakpoint-lg) {
+        @media (min-width: $breakpoint-lg) {
           display: block;
           margin: 0;
         }
@@ -88,7 +88,7 @@
         border-radius: 12px;
         order: 1;
 
-        @media (min-width: variables.$breakpoint-lg) {
+        @media (min-width: $breakpoint-lg) {
           max-width: 600px;
           order: 0;
         }
@@ -100,11 +100,11 @@
     line-height: 1.2;
     animation: fadeInUp 1s ease;
 
-    @media (min-width: variables.$breakpoint-md) {
+    @media (min-width: $breakpoint-md) {
       font-size: 3.5rem;
     }
 
-    @media (min-width: variables.$breakpoint-lg) {
+    @media (min-width: $breakpoint-lg) {
       font-size: 4rem;
     }
   }
@@ -117,7 +117,7 @@
     opacity: 0.95;
     animation: fadeInUp 1s ease 0.2s both;
 
-    @media (min-width: variables.$breakpoint-md) {
+    @media (min-width: $breakpoint-md) {
       font-size: 1.35rem;
     }
   }
@@ -128,7 +128,7 @@
     gap: 1rem;
     animation: fadeInUp 1s ease 0.4s both;
 
-    @media (min-width: variables.$breakpoint-sm) {
+    @media (min-width: $breakpoint-sm) {
       flex-direction: row;
       justify-content: center;
     }
@@ -146,7 +146,7 @@
 
     &--primary {
       background-color: white;
-      color: variables.$primary-color;
+      color: $primary-color;
 
       &:hover {
         transform: translateY(-2px);
@@ -161,7 +161,7 @@
 
       &:hover {
         background-color: white;
-        color: variables.$primary-color;
+        color: $primary-color;
         transform: translateY(-2px);
       }
     }
@@ -222,20 +222,20 @@
 .welcome {
   padding: 4rem 0;
 
-  @media (min-width: variables.$breakpoint-lg) {
+  @media (min-width: $breakpoint-lg) {
     padding: 6rem 0;
   }
 
   &__container {
-    max-width: variables.$container-max-width;
+    max-width: $container-max-width;
     margin: 0 auto;
-    padding: 0 variables.$container-padding;
+    padding: 0 $container-padding;
     display: grid;
     grid-template-columns: 1fr;
     gap: 3rem;
     align-items: center;
 
-    @media (min-width: variables.$breakpoint-md) {
+    @media (min-width: $breakpoint-md) {
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
     }
@@ -244,7 +244,7 @@
   &__content {
     order: 2;
 
-    @media (min-width: variables.$breakpoint-md) {
+    @media (min-width: $breakpoint-md) {
       order: 1;
     }
   }
@@ -252,10 +252,10 @@
   &__heading {
     font-size: 2rem;
     font-weight: 700;
-    color: variables.$text-color;
+    color: $text-color;
     margin: 0 0 1.5rem;
 
-    @media (min-width: variables.$breakpoint-md) {
+    @media (min-width: $breakpoint-md) {
       font-size: 2.5rem;
     }
   }
@@ -263,14 +263,14 @@
   &__text {
     font-size: 1rem;
     line-height: 1.8;
-    color: variables.$light-text;
+    color: $light-text;
     margin: 0 0 1rem;
   }
 
   &__link {
     display: inline-flex;
     align-items: center;
-    color: variables.$primary-color;
+    color: $primary-color;
     text-decoration: none;
     font-weight: 600;
     margin-top: 0.5rem;
@@ -284,13 +284,13 @@
   &__image {
     order: 1;
 
-    @media (min-width: variables.$breakpoint-md) {
+    @media (min-width: $breakpoint-md) {
       order: 2;
     }
   }
 
   &__image-placeholder {
-    background-color: variables.$light-background;
+    background-color: $light-background;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -306,26 +306,26 @@
 // Service Times Section
 .service-times {
   padding: 4rem 0;
-  background-color: variables.$light-background;
+  background-color: $light-background;
 
-  @media (min-width: variables.$breakpoint-lg) {
+  @media (min-width: $breakpoint-lg) {
     padding: 6rem 0;
   }
 
   &__container {
-    max-width: variables.$container-max-width;
+    max-width: $container-max-width;
     margin: 0 auto;
-    padding: 0 variables.$container-padding;
+    padding: 0 $container-padding;
   }
 
   &__heading {
     font-size: 2rem;
     font-weight: 700;
     text-align: center;
-    color: variables.$text-color;
+    color: $text-color;
     margin: 0 0 0.75rem;
 
-    @media (min-width: variables.$breakpoint-md) {
+    @media (min-width: $breakpoint-md) {
       font-size: 2.5rem;
     }
   }
@@ -333,7 +333,7 @@
   &__subheading {
     text-align: center;
     font-size: 1.125rem;
-    color: variables.$light-text;
+    color: $light-text;
     margin: 0 0 3rem;
   }
 
@@ -343,11 +343,11 @@
     gap: 2rem;
     margin-bottom: 3rem;
 
-    @media (min-width: variables.$breakpoint-sm) {
+    @media (min-width: $breakpoint-sm) {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (min-width: variables.$breakpoint-lg) {
+    @media (min-width: $breakpoint-lg) {
       grid-template-columns: repeat(3, 1fr);
     }
   }
@@ -359,7 +359,7 @@
   &__btn {
     display: inline-block;
     padding: 1rem 2.5rem;
-    background-color: variables.$primary-color;
+    background-color: $primary-color;
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -368,9 +368,9 @@
     transition: all 0.3s ease;
 
     &:hover {
-      background-color: color.adjust(variables.$primary-color, $lightness: -10%);
+      background-color: color.adjust($primary-color, $lightness: -10%);
       transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba(variables.$primary-color, 0.3);
+      box-shadow: 0 8px 16px rgba($primary-color, 0.3);
     }
   }
 }
@@ -381,7 +381,7 @@
   padding: 2rem;
   text-align: center;
   transition: all 0.3s ease;
-  border: 1px solid variables.$border-color;
+  border: 1px solid $border-color;
 
   &:hover {
     transform: translateY(-5px);
@@ -393,7 +393,7 @@
     height: 60px;
     margin: 0 auto 1.5rem;
     padding: 1rem;
-    background-color: rgba(variables.$primary-color, 0.1);
+    background-color: rgba($primary-color, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -403,7 +403,7 @@
       width: 32px;
       height: 32px;
       fill: none;
-      stroke: variables.$primary-color;
+      stroke: $primary-color;
       stroke-width: 2;
       stroke-linecap: round;
       stroke-linejoin: round;
@@ -413,21 +413,21 @@
   &__title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: variables.$text-color;
+    color: $text-color;
     margin: 0 0 0.5rem;
   }
 
   &__time {
     font-size: 1rem;
     font-weight: 600;
-    color: variables.$primary-color;
+    color: $primary-color;
     margin: 0 0 1rem;
   }
 
   &__description {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: variables.$light-text;
+    color: $light-text;
     margin: 0;
   }
 }
@@ -436,14 +436,14 @@
 .beliefs {
   padding: 4rem 0;
 
-  @media (min-width: variables.$breakpoint-lg) {
+  @media (min-width: $breakpoint-lg) {
     padding: 6rem 0;
   }
 
   &__container {
-    max-width: variables.$container-max-width;
+    max-width: $container-max-width;
     margin: 0 auto;
-    padding: 0 variables.$container-padding;
+    padding: 0 $container-padding;
   }
 
   &__intro {
@@ -454,17 +454,17 @@
   &__heading {
     font-size: 2rem;
     font-weight: 700;
-    color: variables.$text-color;
+    color: $text-color;
     margin: 0 0 0.75rem;
 
-    @media (min-width: variables.$breakpoint-md) {
+    @media (min-width: $breakpoint-md) {
       font-size: 2.5rem;
     }
   }
 
   &__subheading {
     font-size: 1.125rem;
-    color: variables.$light-text;
+    color: $light-text;
     margin: 0;
   }
 
@@ -474,11 +474,11 @@
     gap: 2rem;
     margin-bottom: 3rem;
 
-    @media (min-width: variables.$breakpoint-sm) {
+    @media (min-width: $breakpoint-sm) {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (min-width: variables.$breakpoint-lg) {
+    @media (min-width: $breakpoint-lg) {
       grid-template-columns: repeat(4, 1fr);
     }
   }
@@ -490,7 +490,7 @@
   &__link {
     display: inline-flex;
     align-items: center;
-    color: variables.$primary-color;
+    color: $primary-color;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.125rem;
@@ -503,11 +503,11 @@
 }
 
 .belief-card {
-  background-color: variables.$light-background;
+  background-color: $light-background;
   border-radius: 12px;
   padding: 2rem;
   transition: all 0.3s ease;
-  border-left: 4px solid variables.$primary-color;
+  border-left: 4px solid $primary-color;
 
   &:hover {
     transform: translateY(-5px);
@@ -517,7 +517,7 @@
   &__number {
     font-size: 2rem;
     font-weight: 800;
-    color: variables.$primary-color;
+    color: $primary-color;
     opacity: 0.3;
     margin: 0 0 0.5rem;
   }
@@ -525,14 +525,14 @@
   &__title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: variables.$text-color;
+    color: $text-color;
     margin: 0 0 0.75rem;
   }
 
   &__text {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: variables.$light-text;
+    color: $light-text;
     margin: 0;
   }
 }
@@ -544,7 +544,7 @@
   position: relative;
   overflow: hidden;
 
-  @media (min-width: variables.$breakpoint-md) {
+  @media (min-width: $breakpoint-md) {
     padding: 8rem 0;
   }
 
@@ -554,7 +554,7 @@
     position: absolute;
     width: 600px;
     height: 600px;
-    border: 4px solid #d946ef;
+    border: 4px solid $secondary-color;
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -562,16 +562,16 @@
     pointer-events: none;
     opacity: 0.3;
 
-    @media (max-width: variables.$breakpoint-md) {
+    @media (max-width: $breakpoint-md) {
       width: 400px;
       height: 400px;
     }
   }
 
   &__container {
-    max-width: variables.$container-max-width;
+    max-width: $container-max-width;
     margin: 0 auto;
-    padding: 0 variables.$container-padding;
+    padding: 0 $container-padding;
     display: grid;
     grid-template-columns: 1fr;
     gap: 4rem;
@@ -579,7 +579,7 @@
     position: relative;
     z-index: 1;
 
-    @media (min-width: variables.$breakpoint-md) {
+    @media (min-width: $breakpoint-md) {
       grid-template-columns: 1fr 1fr;
       gap: 6rem;
     }
@@ -597,7 +597,7 @@
     margin: 0 0 3rem;
     line-height: 1.2;
 
-    @media (min-width: variables.$breakpoint-md) {
+    @media (min-width: $breakpoint-md) {
       font-size: 3rem;
     }
   }
@@ -655,7 +655,7 @@
       color: #0891b2;
     }
 
-    @media (min-width: variables.$breakpoint-md) {
+    @media (min-width: $breakpoint-md) {
       font-size: 1.25rem;
       padding: 1.75rem 2rem;
     }
@@ -679,7 +679,7 @@
     color: #4b5563;
     animation: fadeIn 0.3s ease;
 
-    @media (min-width: variables.$breakpoint-md) {
+    @media (min-width: $breakpoint-md) {
       padding: 0 2rem 2rem;
     }
 
@@ -688,7 +688,7 @@
       font-size: 1rem;
       line-height: 1.7;
 
-      @media (min-width: variables.$breakpoint-md) {
+      @media (min-width: $breakpoint-md) {
         font-size: 1.0625rem;
       }
     }
@@ -724,7 +724,7 @@
     aspect-ratio: 3 / 4;
     display: none;
 
-    @media (min-width: variables.$breakpoint-md) {
+    @media (min-width: $breakpoint-md) {
       display: block;
       position: sticky;
       top: 2rem;
@@ -762,23 +762,23 @@
 // Connect Section
 .connect {
   padding: 4rem 0;
-  background: linear-gradient(135deg, variables.$primary-color 0%, color.adjust(variables.$primary-color, $lightness: -15%) 100%);
+  background: linear-gradient(135deg, $primary-color 0%, color.adjust($primary-color, $lightness: -15%) 100%);
   color: white;
 
-  @media (min-width: variables.$breakpoint-lg) {
+  @media (min-width: $breakpoint-lg) {
     padding: 6rem 0;
   }
 
   &__container {
-    max-width: variables.$container-max-width;
+    max-width: $container-max-width;
     margin: 0 auto;
-    padding: 0 variables.$container-padding;
+    padding: 0 $container-padding;
     display: grid;
     grid-template-columns: 1fr;
     gap: 3rem;
     align-items: center;
 
-    @media (min-width: variables.$breakpoint-lg) {
+    @media (min-width: $breakpoint-lg) {
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
     }
@@ -789,7 +789,7 @@
     font-weight: 700;
     margin: 0 0 1rem;
 
-    @media (min-width: variables.$breakpoint-md) {
+    @media (min-width: $breakpoint-md) {
       font-size: 2.5rem;
     }
   }
@@ -806,7 +806,7 @@
     flex-direction: column;
     gap: 1rem;
 
-    @media (min-width: variables.$breakpoint-sm) {
+    @media (min-width: $breakpoint-sm) {
       flex-direction: row;
     }
   }
@@ -823,7 +823,7 @@
 
     &--primary {
       background-color: white;
-      color: variables.$primary-color;
+      color: $primary-color;
 
       &:hover {
         transform: translateY(-2px);
@@ -838,7 +838,7 @@
 
       &:hover {
         background-color: white;
-        color: variables.$primary-color;
+        color: $primary-color;
         transform: translateY(-2px);
       }
     }

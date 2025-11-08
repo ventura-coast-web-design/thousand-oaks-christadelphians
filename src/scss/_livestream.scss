@@ -1,0 +1,628 @@
+@use "variables" as *;
+@use "sass:color";
+
+// Livestream Hero Section
+.livestream-hero {
+  background: linear-gradient(135deg, $primary-color 0%, color.adjust($primary-color, $lightness: -15%) 100%);
+  color: white;
+  padding: 3rem 0 4rem;
+  text-align: center;
+  position: relative;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 4rem 0 5rem;
+  }
+
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+
+    &--live {
+      background: #dc2626;
+      border-color: #ef4444;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    &--offline {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  &__badge-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: white;
+    
+    .livestream-hero__badge--live & {
+      animation: blink 1.5s ease-in-out infinite;
+    }
+  }
+
+  &__badge-text {
+    color: white;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 3.5rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin: 0;
+    opacity: 0.95;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+// Livestream Player Section
+.livestream-player {
+  padding: 0 0 4rem;
+  background: white;
+  margin-top: -2rem;
+  position: relative;
+  z-index: 1;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 0 0 6rem;
+    margin-top: -3rem;
+  }
+
+  &__container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+  }
+
+  &__video {
+    position: relative;
+    background: #000;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+
+    &--live {
+      box-shadow: 0 20px 60px rgba(37, 99, 235, 0.4);
+    }
+  }
+
+  &__embed {
+    position: relative;
+    padding-bottom: 56.25%; // 16:9 aspect ratio
+    height: 0;
+    overflow: hidden;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__offline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    padding: 2rem;
+    text-align: center;
+    z-index: 2;
+  }
+
+  &__offline-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+
+    svg {
+      width: 40px;
+      height: 40px;
+      stroke: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  &__offline-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 0.75rem;
+  }
+
+  &__offline-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    max-width: 400px;
+  }
+}
+
+.livestream-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    &--primary {
+      background: #dc2626;
+      color: white;
+
+      &:hover {
+        background: #b91c1c;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3);
+      }
+    }
+
+    &--secondary {
+      background: $light-background;
+      color: $text-color;
+
+      &:hover {
+        background: $border-color;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+// Livestream Schedule Section
+.livestream-schedule {
+  padding: 4rem 0;
+  background: $light-background;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 6rem 0;
+  }
+
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+  }
+
+  &__heading {
+    font-size: 2rem;
+    font-weight: 800;
+    color: $text-color;
+    margin: 0 0 0.5rem;
+    text-align: center;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__subheading {
+    font-size: 1rem;
+    color: $light-text;
+    margin: 0 0 3rem;
+    text-align: center;
+  }
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.schedule-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  &--sunday {
+    border-color: color.adjust($primary-color, $alpha: -0.8);
+
+    &:hover {
+      border-color: $primary-color;
+    }
+  }
+
+  &--wednesday {
+    border-color: color.adjust($accent-color, $alpha: -0.8);
+
+    &:hover {
+      border-color: $accent-color;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid $border-color;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: color.adjust($primary-color, $alpha: -0.9);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .schedule-card--sunday & {
+      background: color.adjust($primary-color, $alpha: -0.9);
+      
+      svg {
+        stroke: $primary-color;
+      }
+    }
+
+    .schedule-card--wednesday & {
+      background: color.adjust($accent-color, $alpha: -0.9);
+      
+      svg {
+        stroke: $accent-color;
+      }
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $text-color;
+    margin: 0;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__time-block {
+    background: $light-background;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  &__time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  &__time-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $text-color;
+  }
+
+  &__time-value {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: $primary-color;
+  }
+
+  &__duration {
+    font-size: 0.875rem;
+    color: $light-text;
+  }
+
+  &__description {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: $light-text;
+    margin: 0;
+  }
+
+  &__next {
+    margin-top: 1rem;
+  }
+
+  &__next-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, $primary-color 0%, color.adjust($primary-color, $lightness: -10%) 100%);
+    color: white;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  &__next-icon {
+    font-size: 0.75rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Livestream Info Section
+.livestream-info {
+  padding: 4rem 0;
+  background: white;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 6rem 0;
+  }
+
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+  }
+
+  &__heading {
+    font-size: 2rem;
+    font-weight: 800;
+    color: $text-color;
+    margin: 0 0 3rem;
+    text-align: center;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__note {
+    max-width: 800px;
+    margin: 3rem auto 0;
+    padding: 1.5rem;
+    background: color.adjust($primary-color, $alpha: -0.95);
+    border-left: 4px solid $primary-color;
+    border-radius: 8px;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+
+    svg {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      stroke: $primary-color;
+      margin-top: 0.25rem;
+    }
+
+    h4 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: $text-color;
+      margin: 0 0 0.5rem;
+    }
+
+    p {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: $light-text;
+      margin: 0;
+    }
+  }
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.info-card {
+  text-align: center;
+
+  &__number {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 1.25rem;
+    background: linear-gradient(135deg, $primary-color 0%, color.adjust($primary-color, $lightness: -10%) 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $text-color;
+    margin: 0 0 0.75rem;
+  }
+
+  &__text {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: $light-text;
+    margin: 0;
+  }
+}
+
+// Livestream CTA Section
+.livestream-cta {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #588157 0%, #3a5a40 100%);
+  color: white;
+  text-align: center;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 5rem 0;
+  }
+
+  &__container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+  }
+
+  &__heading {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__text {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin: 0 0 2rem;
+    opacity: 0.95;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &--primary {
+      background: white;
+      color: #588157;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    &--secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+

@@ -62,38 +62,6 @@
     }
   }
 
-  // Social media links
-  &__social {
-    display: flex;
-    gap: 0.75rem;
-    margin-top: 1.25rem;
-  }
-
-  &__social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-
-    svg {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
-      stroke: none;
-    }
-
-    &:hover {
-      background-color: variables.$primary-color;
-      transform: translateY(-2px);
-    }
-  }
-
   // Quick links
   &__links {
     list-style: none;

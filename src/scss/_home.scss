@@ -11,7 +11,7 @@
   justify-content: center;
   gap: 1rem;
   padding: 1rem;
-  background: url('/assets/new_ecclesial-photo.jpeg') center center / cover no-repeat;
+  background: url('/assets/new_ecclesial-photo.webp') center center / cover no-repeat;
   color: white;
   text-align: center;
   overflow: hidden;
@@ -283,22 +283,27 @@
 
   &__image {
     order: 1;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 4 / 3;
 
     @media (min-width: $breakpoint-md) {
       order: 2;
+      aspect-ratio: 3 / 4;
     }
-  }
 
-  &__image-placeholder {
-    background-color: $light-background;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-
-    svg {
+    img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
     }
   }
 }

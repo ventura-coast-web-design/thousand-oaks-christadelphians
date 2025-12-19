@@ -36,7 +36,6 @@
       border-radius: 12px;
       display: flex;
       flex-direction: column;
-      gap: 0.25rem;
       order: 2;
 
       @media (min-width: $breakpoint-lg) {
@@ -57,7 +56,7 @@
         font-size: 1rem;
         font-weight: 600;
         margin: 0;
-        line-height: 1.2;
+        line-height: 1;
         animation: fadeInUp 1s ease;
         display: inline;
 
@@ -113,7 +112,7 @@
     font-size: 1.125rem;
     font-weight: 300;
     margin: 0 0 2rem;
-    line-height: 1.6;
+    line-height: 1;
     opacity: 0.95;
     animation: fadeInUp 1s ease 0.2s both;
 

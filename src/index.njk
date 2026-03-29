@@ -331,6 +331,16 @@ description: "Welcome to the Thousand Oaks Christadelphian Ecclesia. Join us as 
 (function () {
     var STORAGE_KEY = 'toc_flyer_modal_date';
 
+    // First local calendar day the flyer modal no longer runs (still shown on prior days).
+    // For a future campaign: set a new end date and update the modal markup above.
+    var FLYER_MODAL_CAMPAIGN_END = new Date(2026, 4, 7);
+
+    function isFlyerCampaignActive() {
+        var now = new Date();
+        var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        return today < FLYER_MODAL_CAMPAIGN_END;
+    }
+
     function todayKey() {
         var d = new Date();
         return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
@@ -338,6 +348,8 @@ description: "Welcome to the Thousand Oaks Christadelphian Ecclesia. Join us as 
 
     var modal = document.getElementById('flyer-modal');
     if (!modal) return;
+
+    if (!isFlyerCampaignActive()) return;
 
     var prevOverflow = '';
 

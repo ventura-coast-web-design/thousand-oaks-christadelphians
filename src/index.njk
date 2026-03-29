@@ -285,3 +285,102 @@ description: "Welcome to the Thousand Oaks Christadelphian Ecclesia. Join us as 
         </div>
     </div>
 </section>
+
+<div id="flyer-modal" class="flyer-modal" hidden>
+    <div class="flyer-modal__backdrop" data-flyer-close tabindex="-1" aria-hidden="true"></div>
+    <div
+        class="flyer-modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="flyer-modal-title"
+    >
+        <button type="button" class="flyer-modal__close" data-flyer-close aria-label="Close announcement">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path d="M18 6L6 18M6 6l12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+        <div class="flyer-modal__body">
+            <div class="flyer-modal__image-wrap">
+                <img src="/assets/flyer.png" alt="" width="1066" height="1374" class="flyer-modal__image" />
+            </div>
+            <div class="flyer-modal__text">
+                <p class="flyer-modal__eyebrow">You're invited to our</p>
+                <h2 class="flyer-modal__headline" id="flyer-modal-title">Bible study series</h2>
+                <p class="flyer-modal__when">Wednesdays at 7:30 PM</p>
+                <p class="flyer-modal__address">101 East Wilbur Road, Thousand Oaks</p>
+                <ul class="flyer-modal__sessions" aria-label="Upcoming sessions">
+                    <li class="flyer-modal__session">
+                        <span class="flyer-modal__session-date">March 18th</span>
+                        <span class="flyer-modal__session-title">“The Power and Purpose of the Holy Spirit Gifts”</span>
+                    </li>
+                    <li class="flyer-modal__session">
+                        <span class="flyer-modal__session-date">April 8th</span>
+                        <span class="flyer-modal__session-title">“Revealing the Hope of the Bible”</span>
+                    </li>
+                    <li class="flyer-modal__session">
+                        <span class="flyer-modal__session-date">May 6th</span>
+                        <span class="flyer-modal__session-title">“The Nature of Man — Death vs. Immortality”</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function () {
+    var STORAGE_KEY = 'toc_flyer_modal_date';
+
+    function todayKey() {
+        var d = new Date();
+        return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    }
+
+    var modal = document.getElementById('flyer-modal');
+    if (!modal) return;
+
+    var prevOverflow = '';
+
+    function shouldShow() {
+        try {
+            return localStorage.getItem(STORAGE_KEY) !== todayKey();
+        } catch (e) {
+            return true;
+        }
+    }
+
+    function rememberDismissed() {
+        try {
+            localStorage.setItem(STORAGE_KEY, todayKey());
+        } catch (e) { /* ignore */ }
+    }
+
+    function openModal() {
+        modal.removeAttribute('hidden');
+        prevOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        var closeBtn = modal.querySelector('.flyer-modal__close');
+        if (closeBtn) closeBtn.focus();
+    }
+
+    function closeModal() {
+        modal.setAttribute('hidden', '');
+        document.body.style.overflow = prevOverflow;
+        rememberDismissed();
+    }
+
+    if (!shouldShow()) return;
+
+    openModal();
+
+    modal.addEventListener('click', function (e) {
+        if (e.target.closest('[data-flyer-close]')) closeModal();
+    });
+
+    document.addEventListener('keydown', function onKey(e) {
+        if (e.key === 'Escape' && !modal.hasAttribute('hidden')) {
+            closeModal();
+        }
+    });
+})();
+</script>

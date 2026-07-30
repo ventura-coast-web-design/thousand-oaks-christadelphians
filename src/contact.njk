@@ -24,18 +24,20 @@ description: "Get in touch with us - Service times, location, and contact inform
             </div>
             <h2 class="service-times-section__heading">Service Times</h2>
             <p class="service-times-section__subtitle">We meet regularly for worship, Bible study, and fellowship. All are welcome to join us!</p>
+            <p class="service-times-section__summer-note season--summer">Summer hours through Labor Day weekend: Memorial Service at {{ schedule.memorial.summer.timeShort }}, no Sunday School.</p>
             
             <div class="service-times-grid">
                 <div class="service-time">
                     <h3 class="service-time__day">Sunday Morning</h3>
                     <div class="service-time__details">
-                        <div class="service-time__item">
+                        <div class="service-time__item season--regular">
                             <span class="service-time__label">Sunday School</span>
-                            <span class="service-time__time">9:30 AM</span>
+                            <span class="service-time__time">{{ schedule.sundaySchool.regular.timeShort }}</span>
                         </div>
                         <div class="service-time__item">
                             <span class="service-time__label">Memorial Service</span>
-                            <span class="service-time__time">10:50 AM</span>
+                            <span class="service-time__time season--regular">{{ schedule.memorial.regular.timeShort }}</span>
+                            <span class="service-time__time season--summer">{{ schedule.memorial.summer.timeShort }}</span>
                         </div>
                     </div>
                 </div>

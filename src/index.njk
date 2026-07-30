@@ -14,12 +14,16 @@ description: "Welcome to the Thousand Oaks Christadelphian Ecclesia. Join us as 
     </div>
     <div class="hero__right-content">
         <h2 class="schedule_title">Schedule</h2>
-        <h3 class="schedule_subtitle">Sunday School:</h3>
-        <p>9:30 - 10:30 AM</p>
+        <p class="schedule_note season--summer">Summer hours through Labor Day weekend</p>
+        <div class="season--regular">
+            <h3 class="schedule_subtitle">Sunday School:</h3>
+            <p>{{ schedule.sundaySchool.regular.time }}</p>
+        </div>
         <h3 class="schedule_subtitle">Sunday Memorial Service:</h3>
-        <p>10:50 - 12:30 PM</p>
+        <p class="season--regular">{{ schedule.memorial.regular.time }}</p>
+        <p class="season--summer">{{ schedule.memorial.summer.time }}</p>
         <h3 class="schedule_subtitle">Wednesday Evening Bible Class:</h3>
-        <p>7:30 - 8:30 PM</p>
+        <p>{{ schedule.wednesday.time }}</p>
     </div>
     <div class="hero__scroll">
         <span>Scroll to explore</span>
@@ -53,8 +57,10 @@ description: "Welcome to the Thousand Oaks Christadelphian Ecclesia. Join us as 
         <h2 class="service-times__heading">You Are Invited to Our Upcoming Services</h2>
         <p class="service-times__subheading">Come join us to gather around God's word! A warm welcome awaits you!</p>
 
+        <p class="service-times__summer-note season--summer">Summer hours: Memorial Service at {{ schedule.memorial.summer.timeShort }} · No Sunday School (through Labor Day weekend)</p>
+
         <div class="service-times__grid">
-            <div class="service-card">
+            <div class="service-card season--regular">
                 <div class="service-card__icon">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 3L3 9v13h18V9L12 3z"/>
@@ -63,7 +69,7 @@ description: "Welcome to the Thousand Oaks Christadelphian Ecclesia. Join us as 
                     </svg>
                 </div>
                 <h3 class="service-card__title">Sunday School</h3>
-                <p class="service-card__time">Sunday 9:30 - 10:30 AM</p>
+                <p class="service-card__time">{{ schedule.sundaySchool.regular.timeCard }}</p>
                 <p class="service-card__description">
                     Classes available for all ages of children and adults alike, catered to learning about the wonders and power of God's word.
                 </p>
@@ -77,7 +83,8 @@ description: "Welcome to the Thousand Oaks Christadelphian Ecclesia. Join us as 
                     </svg>
                 </div>
                 <h3 class="service-card__title">Sunday Memorial Service</h3>
-                <p class="service-card__time">Sunday 10:50 AM - 12:30 PM</p>
+                <p class="service-card__time season--regular">{{ schedule.memorial.regular.timeCard }}</p>
+                <p class="service-card__time season--summer">{{ schedule.memorial.summer.timeCard }}</p>
                 <p class="service-card__description">
                     We gather to remember the Lord Jesus Christ in the breaking of bread and wine, as he commanded.
                 </p>

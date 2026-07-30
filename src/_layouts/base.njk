@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-season="{{ 'summer' if schedule.isSummerHours else 'regular' }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if title %}{{ title }}{% else %}Eleventy SCSS Template{% endif %}</title>
     <meta name="description" content="{% if description %}{{ description }}{% else %}A simple static website built with Eleventy and SCSS{% endif %}">
+    <script>
+    (function () {
+      function laborDay(year) {
+        var sept1 = new Date(year, 8, 1);
+        var day = sept1.getDay();
+        var offset = day === 0 ? 1 : day === 1 ? 0 : 8 - day;
+        return new Date(year, 8, 1 + offset);
+      }
+      function summerStartSunday(year) {
+        var june30 = new Date(year, 5, 30);
+        var daysBackToSaturday = (june30.getDay() + 1) % 7;
+        var lastFullSaturday = new Date(year, 5, 30 - daysBackToSaturday);
+        return new Date(year, 5, lastFullSaturday.getDate() - 6);
+      }
+      function summerEndSunday(year) {
+        var labor = laborDay(year);
+        return new Date(year, labor.getMonth(), labor.getDate() - 1);
+      }
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      var year = today.getFullYear();
+      var start = summerStartSunday(year);
+      var end = summerEndSunday(year);
+      document.documentElement.setAttribute(
+        "data-season",
+        today >= start && today <= end ? "summer" : "regular"
+      );
+    })();
+    </script>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />

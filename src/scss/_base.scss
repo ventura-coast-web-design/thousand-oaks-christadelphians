@@ -1,5 +1,15 @@
 @use "variables";
 @use "sass:color";
+
+// Season schedule visibility (summer vs regular hours)
+html[data-season="summer"] .season--regular {
+  display: none !important;
+}
+
+html[data-season="regular"] .season--summer {
+  display: none !important;
+}
+
 // Typography
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;

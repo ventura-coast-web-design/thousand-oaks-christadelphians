@@ -18,13 +18,14 @@
 
             <div class="footer__section footer__section--service">
                 <h3 class="footer__heading">Service Times</h3>
-                <div class="footer__service-time">
+                <div class="footer__service-time season--regular">
                     <p class="footer__text"><strong>Sunday School</strong></p>
-                    <p class="footer__text">9:30 AM</p>
+                    <p class="footer__text">{{ schedule.sundaySchool.regular.timeShort }}</p>
                 </div>
                 <div class="footer__service-time">
                     <p class="footer__text"><strong>Memorial Service</strong></p>
-                    <p class="footer__text">10:50 AM</p>
+                    <p class="footer__text season--regular">{{ schedule.memorial.regular.timeShort }}</p>
+                    <p class="footer__text season--summer">{{ schedule.memorial.summer.timeShort }} <span class="footer__season-note">(Summer)</span></p>
                 </div>
             </div>
 

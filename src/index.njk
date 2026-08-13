@@ -293,7 +293,7 @@ description: "Welcome to the Thousand Oaks Christadelphian Ecclesia. Join us as 
     </div>
 </section>
 
-<div id="flyer-modal" class="flyer-modal" hidden>
+<div id="flyer-modal" class="flyer-modal flyer-modal--myth" hidden>
     <div class="flyer-modal__backdrop" data-flyer-close tabindex="-1" aria-hidden="true"></div>
     <div
         class="flyer-modal__dialog"
@@ -308,27 +308,52 @@ description: "Welcome to the Thousand Oaks Christadelphian Ecclesia. Join us as 
         </button>
         <div class="flyer-modal__body">
             <div class="flyer-modal__image-wrap">
-                <img src="/assets/flyer.png" alt="" width="1066" height="1374" class="flyer-modal__image" />
+                <img
+                    src="/assets/myth/hero-image2.webp"
+                    alt=""
+                    width="1024"
+                    height="1024"
+                    class="flyer-modal__image"
+                    decoding="async"
+                />
             </div>
             <div class="flyer-modal__text">
-                <p class="flyer-modal__eyebrow">You're invited to our</p>
-                <h2 class="flyer-modal__headline" id="flyer-modal-title">Bible study series</h2>
-                <p class="flyer-modal__when">Wednesdays at 7:30 PM</p>
+                <p class="flyer-modal__eyebrow">You're invited</p>
+                <h2 class="flyer-modal__visually-hidden" id="flyer-modal-title">Public classes exploring what the Bible really teaches about Satan</h2>
+                <img
+                    src="/assets/myth/logo.png"
+                    alt=""
+                    width="2947"
+                    height="1810"
+                    class="flyer-modal__logo"
+                    decoding="async"
+                />
+                <p class="flyer-modal__tagline">A symbol. A metaphor. Not a being.</p>
+                <p class="flyer-modal__lede">
+                    Free public classes exploring what the Bible really teaches about Satan — online and in person.
+                </p>
+                <p class="flyer-modal__when">Local class · Sunday, October 4 · 4pm</p>
                 <p class="flyer-modal__address">101 East Wilbur Road, Thousand Oaks</p>
-                <ul class="flyer-modal__sessions" aria-label="Upcoming sessions">
-                    <li class="flyer-modal__session">
-                        <span class="flyer-modal__session-date">March 18th</span>
-                        <span class="flyer-modal__session-title">“The Power and Purpose of the Holy Spirit Gifts”</span>
-                    </li>
-                    <li class="flyer-modal__session">
-                        <span class="flyer-modal__session-date">April 8th</span>
-                        <span class="flyer-modal__session-title">“Revealing the Hope of the Bible”</span>
-                    </li>
-                    <li class="flyer-modal__session">
-                        <span class="flyer-modal__session-date">May 6th</span>
-                        <span class="flyer-modal__session-title">“The Nature of Man — Death vs. Immortality”</span>
-                    </li>
-                </ul>
+                <div class="flyer-modal__ctas">
+                    <a
+                        class="btn btn-primary flyer-modal__cta"
+                        href="https://satanmyth.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        hreflang="en"
+                    >
+                        Visit satanmyth.com
+                    </a>
+                    <a
+                        class="btn btn-outline flyer-modal__cta"
+                        href="https://mitodesatanas.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        hreflang="es"
+                    >
+                        En español · mitodesatanas.com
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -336,11 +361,11 @@ description: "Welcome to the Thousand Oaks Christadelphian Ecclesia. Join us as 
 
 <script>
 (function () {
-    var STORAGE_KEY = 'toc_flyer_modal_date';
+    var STORAGE_KEY = 'toc_myth_modal_date';
 
     // First local calendar day the flyer modal no longer runs (still shown on prior days).
-    // For a future campaign: set a new end date and update the modal markup above.
-    var FLYER_MODAL_CAMPAIGN_END = new Date(2026, 4, 7);
+    // End of 2026 → inactive starting Jan 1, 2027.
+    var FLYER_MODAL_CAMPAIGN_END = new Date(2027, 0, 1);
 
     function isFlyerCampaignActive() {
         var now = new Date();
